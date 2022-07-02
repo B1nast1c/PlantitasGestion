@@ -17,7 +17,7 @@ Por cuestión de lógica lo que primero se va a generar es el deployment y el se
 	docker push NOMBREDEUSUARIO/NOMBREDELAIMAGEN:latest
 	
  Lo que se realiza con esto es la subida de nuestra imagen hacia DockerHub:
-<p align="center"><img src="Imagenes/DockerHub.jpg" width="400px" height="500px"></p>
+<p align="center"><img src="Imagenes/DockerHub.png" width="850px" height="500px"></p>
 
  ### PASO 2
 Una vez realizado ese procesos, se deberá ejecutar la siguiente serie de comandos para poder generar el los pods dentro de nuestro cluster en kubernetes 
@@ -26,25 +26,32 @@ Una vez realizado ese procesos, se deberá ejecutar la siguiente serie de comand
 	kubectl apply -f .\server-deployment.yaml 
 	kubectl get pods (Viendo el estado de los pods)
 	
-Imagen pods
+<p align="center"><img src="Imagenes/Pods.png" width="900px" height="500px"></p>
 
  ### PASO 3
  Cambiamos de directorio y creamos el deployment del back para nuestros usarios, pues nuestra aplicación poseerá autenticación en base a una petición, mostrada más adelante en la implementación:
  
     kubectl apply -f .\server-deployment.yaml
  
- Imgen pods user
+<p align="center"><img src="Imagenes/PodsUsers.png" width="900px" height="500px"></p>
+
  ### PASO 4
  Se procede a la ejecución de nuestros servicios, exponiendo los puertos que hemos asignado dentro de nuestros archivos yaml. Para la ejecución del contenedor de nuestros productos correremos el siguiente comando, teniendo en consideración que nuestros pods ya han sido creados y cuya verificación ha sido ejecutada con el comando ya mencionado anteriormente
  - Comando para el back de los productos: `kubectl port-forward svc/server-service 9000:9000`
  - Comando para el back de los usuarios: `kubectl port-forward svc/user-service 900:9001`
  
- imagen port back 1
- impagen port back 2
+Productos
+ <p align="center"><img src="Imagenes/PortPlants.png" width="900px" height="500px"></p>
+
+Usuarios
+<p align="center"><img src="Imagenes/PortUsers.png" width="900px" height="500px"></p>
+
  ### PASO 5
  Accederemos y verificaremos que nuestros servicios hayan sido implementados correctamente, para ello se usará una herramienta que se encargue de verificar las peticiones y devuelva los resultados, para esto y al haber ya expuesto los puertos, las peticiones no deben contener ningún error:
- 
- Imagen get 9000
 
- Imagen get 9001
+Productos
+ <p align="center"><img src="Imagenes/InsomniaPlants.png" width="900px" height="500px"></p>
+
+Usuarios
+<p align="center"><img src="Imagenes/InsomniaUsers.png" width="900px" height="500px"></p>
 

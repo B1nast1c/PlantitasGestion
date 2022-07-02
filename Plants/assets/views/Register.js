@@ -24,6 +24,7 @@ const Register = () => {
         "password": password
     }
     axios.post('http://10.0.2.2:9001/register', content)
+    .then(res => console.log(res)) //Se muestran las ejecuciones en consola
     .catch(err => console.log(err))
     setUsername('')
     setPassword('')

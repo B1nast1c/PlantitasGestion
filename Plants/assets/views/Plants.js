@@ -4,8 +4,7 @@ import {
   FlatList,
   Text,
   View,
-  TouchableOpacity,
-  Modal,
+  TouchableOpacity
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -29,6 +28,7 @@ const Plants = ({route}) => {
       .then(res => {
         setToken(res.data.token);
         setPlants(res.data.data.filter(item => item.type === data.name));
+        console.log(res)
       })
       .catch(err => {
         console.log('Error', err);

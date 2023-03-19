@@ -1,2 +1,0 @@
-kubectl port-forward svc/server-service 9000:9000
-Ejecutar este comando para hacer el portforwading uwu
